@@ -3,206 +3,202 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EditPe - Content Editing and Branding Service for Creators and Startups">
+  <meta name="keywords" content="video editing, poster design, content creation, reels, branding">
   <title>EditPe</title>
+  <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono|Muli">
   <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/bauhaus-93">
-
 </head>
 <body>
   <header>
     <nav class="navbar">
       <div class="menu dropdown" id="menuToggle">
-  <img src="https://img.icons8.com/ios-filled/50/menu--v6.png" alt="menu-icon" />
-</div>
-<div class="sidebar" id="sidebar">
-   <div class="back-arrow" id="closeSidebar">
-    <img src="https://img.icons8.com/ios-filled/24/ffffff/left.png" alt="Back Arrow" />
-    <span>Back</span>
-  </div>
-  <ul>
-    <li><a href="#home-section">Home</a></li>
-    <li><a href="https://drive.google.com/drive/folders/1ufF5vgRbXNL_5lcs696ZMu6TK_4MkmCa?usp=drive_link" target="_blank">Portfolio</a></li>
-    <li><a href="#" id="packagesPopup">Packages</a></li>
-    <li><a href="#contact-section">Contact us</a></li>
-  </ul>
-</div>
-<!-- Packages Info Popup -->
-<div id="packagesModal" class="modal">
-  <div class="modal-content" style="text-align: center;">
-    <span class="close-modal" id="closePackages">&times;</span>
-    <h3 style="color: #6a0dad; font-family: 'Space Mono', monospace;">WILL BE UPDATED SOON..!</h3>
-    <p id="infocap"style="margin-top: 10px; font-family: 'Muli', sans-serif;">FOR MORE INFORMATION CONTACT US.</p>
-  </div>
-</div>
-<div class="modal-overlay" id="packagesOverlay"></div>
-      <!-- Auth Trigger (Profile image) -->
-<div id="authTrigger" class="profile" style="cursor: pointer;">
-  <img src="https://img.icons8.com/material-outlined/24/user--v1.png" alt="user-profile-icon" />
-</div>
-
-<!-- Auth Options Dropdown -->
-<div id="authOptions" class="auth-options">
-  <button id="loginBtn">Login</button>
-  <button id="signupBtn">Sign Up</button>
-  <button id="logoutBtn" style="display: none;">Logout</button>
-</div>
-
-<!-- Modal Overlay -->
-<div class="modal-overlay" id="authModalOverlay"></div>
-
-<!-- Sign Up Modal -->
-<div class="modal" id="signupModal">
-  <div class="modal-content">
-    <span class="close-modal" id="closeSignup">&times;</span>
-    <h2>Sign Up</h2>
-    <form id="signupForm">
-      <label for="signupName">Name</label>
-      <input type="text" id="signupName" required>
-
-      <label for="signupPhone">Phone Number</label>
-      <input type="tel" id="signupPhone" required>
-
-      <label for="signupPassword">Password</label>
-      <input type="password" id="signupPassword" required>
-
-      <button type="submit">Create Account</button>
-    </form>
-  </div>
-</div>
-
-<!-- Login Modal -->
-<div class="modal" id="loginModal">
-  <div class="modal-content">
-    <span class="close-modal" id="closeLogin">&times;</span>
-    <h2>Login</h2>
-    <form id="loginForm">
-      <label for="loginPhone">Phone Number</label>
-      <input type="tel" id="loginPhone" required>
-
-      <label for="loginPassword">Password</label>
-      <input type="password" id="loginPassword" required>
-
-      <button type="submit">Login</button>
-    </form>
-  </div>
-</div>
-</nav>
+        <img src="https://img.icons8.com/ios-filled/50/menu--v6.png" alt="menu-icon" />
+      </div>
+      <div class="sidebar" id="sidebar">
+        <div class="back-arrow" id="closeSidebar">
+          <img src="https://img.icons8.com/ios-filled/24/ffffff/left.png" alt="Back Arrow" />
+          <span>Back</span>
+        </div>
+        <ul>
+          <li><a href="#home-section">Home</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1ufF5vgRbXNL_5lcs696ZMu6TK_4MkmCa?usp=drive_link" target="_blank">Portfolio</a></li>
+          <li><a href="#" id="packagesPopup">Packages</a></li>
+          <li><a href="#contact-section">Contact us</a></li>
+        </ul>
+      </div>
+      <div id="authTrigger" class="profile" style="cursor: pointer;">
+        <img src="https://img.icons8.com/material-outlined/24/user--v1.png" alt="user-profile-icon" />
+      </div>
+      <div id="authOptions" class="auth-options">
+        <button id="loginBtn">Login</button>
+        <button id="signupBtn">Sign Up</button>
+        <button id="logoutBtn" style="display: none;">Logout</button>
+      </div>
+    </nav>
   </header>
-<main>
+
+  <!-- Popups -->
+  <div class="modal-overlay" id="authModalOverlay"></div>
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div class="modal-overlay" id="packagesOverlay"></div>
+
+  <div class="modal" id="packagesModal">
+    <div class="modal-content" style="text-align: center;">
+      <span class="close-modal" id="closePackages">&times;</span>
+      <h3 style="color: #6a0dad; font-family: 'Space Mono', monospace;">WILL BE UPDATED SOON..!</h3>
+      <p id="infocap" style="margin-top: 10px; font-family: 'Muli', sans-serif;">FOR MORE INFORMATION CONTACT US.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="signupModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeSignup">&times;</span>
+      <h2>Sign Up</h2>
+      <form id="signupForm">
+        <label for="signupName">Name</label>
+        <input type="text" id="signupName" required>
+
+        <label for="signupPhone">Phone Number</label>
+        <input type="tel" id="signupPhone" required>
+
+        <label for="signupPassword">Password</label>
+        <input type="password" id="signupPassword" required>
+
+        <button type="submit">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="loginModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeLogin">&times;</span>
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label for="loginPhone">Phone Number</label>
+        <input type="tel" id="loginPhone" required>
+
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" required>
+
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <main>
     <section class="hero" id="home-section">
       <div class="Name">
-      <figure>
-      <img width="250" height="140" src="WEB NAME.png" alt="web name">
-      <figcaption>"Where you're a creator, brand or startup - <p1>Edit</p1><p2>Pe</p2> gives your content the polish it deserves."</figcaption>
-      <div class="bookbutton">
-  <button id="openModal"><b><p3>BOOK A SHOOT</p3></b></button>
-</div>
-<!-- Booking Modal -->
-<div class="modal-overlay" id="modalOverlay"></div>
-<div class="modal" id="bookingModal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <img src="WEB NAME.png" alt="EditPe Logo" class="modal-logo" />
-      <span class="close-modal" id="closeModal">&times;</span>
-    </div>
-    <h2>BOOK A SHOOT</h2>
-    <form id="bookingForm">
-  <label for="name">Name</label>
-  <input type="text" id="name" name="name" placeholder="Full Name" required>
+        <figure>
+          <img width="250" height="140" src="WEB NAME.png" alt="EditPe Logo">
+          <figcaption>"Where you're a creator, brand or startup - <span class="edit-text">Edit</span><span class="pe-text">Pe</span> gives your content the polish it deserves."</figcaption>
+          <div class="bookbutton">
+            <button id="openModal"><b><span class="btn-text">BOOK A SHOOT</span></b></button>
+          </div>
+        </figure>
+      </div>
 
-  <label for="phone">Phone Number</label>
-  <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000" required>
+      <div class="modal" id="bookingModal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <img src="WEB NAME.png" alt="EditPe Logo" class="modal-logo" />
+            <span class="close-modal" id="closeModal">&times;</span>
+          </div>
+          <h2>BOOK A SHOOT</h2>
+          <form id="bookingForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Full Name" required>
 
-  <label for="date">Preferred Date</label>
-  <input type="date" id="date" name="date" required>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000" required>
 
-  <label for="service">Select Service</label>
-  <select id="service" name="service" required>
-    <option value="">-- Select a Service --</option>
-    <option value="Reel Content Creation">Reel Content Creation</option>
-    <option value="Video Editing">Video Editing</option>
-    <option value="Poster Designing">Poster Designing</option>
-    <option value="Video Shooting">Video Shooting</option>
-  </select>
-  <button type="submit">Submit</button>
-</form>
-</div>
-</div>
-</div>
-    </figure>
-    </div>
+            <label for="date">Preferred Date</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="service">Select Service</label>
+            <select id="service" name="service" required>
+              <option value="">-- Select a Service --</option>
+              <option value="Reel Content Creation">Reel Content Creation</option>
+              <option value="Video Editing">Video Editing</option>
+              <option value="Poster Designing">Poster Designing</option>
+              <option value="Video Shooting">Video Shooting</option>
+            </select>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
     </section>
+
     <section class="services">
-  <h2><s1>Our Services</s1></h2>
-  <div class="service-grid">
-    <div class="service-item">
-      <img src="https://img.icons8.com/ios-filled/50/video-editing.png" alt="Reels Icon">
-      <h3>Reel Content Creation</h3>
-      <p>Engaging short-form videos tailored for Instagram, YouTube Shorts, and more.</p>
+      <h2><span class="section-title">Our Services</span></h2>
+      <div class="service-grid">
+        <div class="service-item">
+          <img src="https://img.icons8.com/ios-filled/50/video-editing.png" alt="Reels Icon">
+          <h3>Reel Content Creation</h3>
+          <p>Engaging short-form videos tailored for Instagram, YouTube Shorts, and more.</p>
+        </div>
+        <div class="service-item">
+          <img src="https://img.icons8.com/ios-filled/50/clapperboard.png" alt="Video Editing Icon">
+          <h3>Video Editing</h3>
+          <p>Professional-grade editing for promotional, brand, and event videos.</p>
+        </div>
+        <div class="service-item">
+          <img src="https://img.icons8.com/ios-filled/50/poster.png" alt="Poster Design Icon">
+          <h3>Poster Designing</h3>
+          <p>Creative poster designs that speak your brand's visual language effectively.</p>
+        </div>
+        <div class="service-item">
+          <img src="https://img.icons8.com/ios-filled/50/film-reel.png" alt="Reel Recording Icon">
+          <h3>Video Shooting</h3>
+          <p>High-quality video shoots tailored for your YouTube videos, brand, event, or content strategy.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="our-work" id="portfolio-section">
+      <h2><span class="section-title">Our Work</span></h2>
+      <div class="video-gallery">
+        <div class="video-item">
+          <iframe src="https://www.youtube.com/embed/D2uIgZCgLwE" title="YouTube Video" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="drive-button">
+        <a href="https://drive.google.com/drive/folders/1ufF5vgRbXNL_5lcs696ZMu6TK_4MkmCa?usp=drive_link" target="_blank">
+          <button><b><span class="btn-text">VIEW MORE</span></b></button>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <section class="contact-us">
+      <h2><span class="section-title">Contact Us</span></h2>
+      <div class="lets-talk">
+        <img src="https://img.icons8.com/ios-filled/50/6a0dad/speech-bubble-with-dots.png" alt="Let's Talk Icon" class="lets-talk-icon" />
+        <p class="lets-talk-text">Let's Talk Content</p>
+      </div>
+      <div class="summary">
+        <p>Have a project in mind? Need help with reels, posters, or a full shoot? Drop us a message - we’re quick to respond and ready to create!</p>
+      </div>
+      <div class="contact-details" id="contact-section">
+        <div class="contact-card">
+          <img src="https://img.icons8.com/ios-filled/50/6a0dad/whatsapp.png" alt="WhatsApp Icon" />
+          <p><strong>Phone:</strong>+91 87905 05612<br>+91 84669 21944</p>
+        </div>
+        <div class="contact-card">
+          <img src="https://img.icons8.com/ios-filled/50/6a0dad/instagram-new.png" alt="Instagram Icon" />
+          <p><strong>Instagram:</strong> <a href="https://www.instagram.com/your_instagram_id/" target="_blank">@editpe_official</a></p>
+        </div>
+      </div>
+    </section>
+    <div class="copyright">
+      <img src="https://img.icons8.com/ios-glyphs/20/999999/copyright.png" alt="Copyright Icon" />
+      <p>All rights reserved by <strong>EditPe</strong> 2025</p>
     </div>
-    <div class="service-item">
-      <img src="https://img.icons8.com/ios-filled/50/clapperboard.png" alt="Video Editing Icon">
-      <h3>Video Editing</h3>
-      <p>Professional-grade editing for promotional, brand, and event videos.</p>
-    </div>
-    <div class="service-item">
-      <img src="https://img.icons8.com/ios-filled/50/poster.png" alt="Poster Design Icon">
-      <h3>Poster Designing</h3>
-      <p>Creative poster designs that speak your brand's visual language effectively.</p>
-    </div>
-<div class="service-item">
-  <img src="https://img.icons8.com/ios-filled/50/film-reel.png" alt="Reel Recording Icon">
-  <h3>Video Shooting</h3>
-  <p>High-quality video shoots tailored for your YouTube Long videos, brand, event, or content strategy.</p>
-</div>
-</div>
-</section>
-<section class="our-work" id="portfolio-section">
-  <h2><s1>Our Work</s1></h2>
-  <div class="video-gallery">
-    <div class="video-item">
-      <iframe 
-        src="https://www.youtube.com/embed/D2uIgZCgLwE" 
-        title="YouTube Video"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-  <div class="drive-button" >
-    <a href="https://drive.google.com/drive/folders/1ufF5vgRbXNL_5lcs696ZMu6TK_4MkmCa?usp=drive_link" target="_blank">
-      <button><b><p3>VIEW MORE</p3></b></button>
-    </a>
-  </div>
-</section>
-</main>
-<footer>
-<section class="contact-us">
-  <h2><s1>Contact Us</s1></h2>
-  <div class="lets-talk">
-  <img src="https://img.icons8.com/ios-filled/50/6a0dad/speech-bubble-with-dots.png" alt="Let's Talk Icon" class="lets-talk-icon" />
-  <p class="lets-talk-text">Let's Talk Content</p>
-</div>
-<div class="summary">
-  <p>Have a project in mind? Need help with reels, posters, or a full shoot? 
-Drop us a message-we’re quick to respond and ready to create!</p>
-</div>
-<div class="contact-details" id="contact-section">
-      <div class="contact-card">
-      <img src="https://img.icons8.com/ios-filled/50/6a0dad/whatsapp.png" alt="WhatsApp Icon" />
-      <p><strong>Phone:</strong>+91 87905 05612</br>+91 84669 21944</p>
-    </div>
-    <div class="contact-card">
-      <img src="https://img.icons8.com/ios-filled/50/6a0dad/instagram-new.png" alt="Instagram Icon" />
-      <p><strong>Instagram:</strong> <a href="https://www.instagram.com/your_instagram_id/" target="_blank">@editpe_official</a></p>
-    </div>
-  </div>
-</section>
-<div class="copyright">
-  <img src="https://img.icons8.com/ios-glyphs/20/999999/copyright.png" alt="Copyright Icon" />
-  <p>All rights reserved by <strong>EditPe</strong> 2025</p>
-</div>
-</footer>
-<script src="script.js"></script>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
