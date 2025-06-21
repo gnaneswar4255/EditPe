@@ -129,30 +129,25 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
 
   const name = document.getElementById("name").value.trim();
   const phone = document.getElementById("phone").value.trim();
-  const date = document.getElementById("date").value;
-  const service = document.getElementById("service").value;
+  const date = document.getElementById("date").value.trim();
+  const service = document.getElementById("service").value.trim();
 
-  if (!name || !phone || !date || !service) {
-    alert("Please fill all fields.");
-    return;
+  const message = `New Booking Received:\n\nName: ${name}\nPhone: ${phone}\nDate: ${date}\nService: ${service}`;
+
+  const encodedMsg = encodeURIComponent(message);
+
+  // Replace with your two WhatsApp numbers
+  const whatsapp1 = `https://wa.me/918790505612?text=${encodedMsg}`;
+  const whatsapp2 = `https://wa.me/918466921944?text=${encodedMsg}`;
+
+  // Show confirmation and open both WhatsApp messages
+  if (confirm("Submit booking and open WhatsApp to notify team?")) {
+    window.open(whatsapp1, '_blank');
+    window.open(whatsapp2, '_blank');
+
+    // Optionally close modal
+    document.getElementById("bookingModal").style.display = "none";
+    document.getElementById("modalOverlay").style.display = "none";
+    this.reset();
   }
-
-  const message = `*New Booking Request 📸*\n\nName: ${name}\nPhone: ${phone}\nPreferred Date: ${date}\nService: ${service}\n\nFrom EditPe Website`;
-
-  // Two recipient numbers (add country code)
-  const numbers = ["918790505612", "918466921944"]; // Replace with your actual numbers
-
-  numbers.forEach(number => {
-    const encodedMsg = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/${number}?text=${encodedMsg}`;
-    window.open(whatsappURL, "_blank");
-  });
-
-  // Close modal after sending
-  document.getElementById("bookingModal").style.display = "none";
-  document.getElementById("modalOverlay").style.display = "none";
-
-  // Optionally reset the form
-  this.reset();
 });
-
