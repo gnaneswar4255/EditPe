@@ -612,4 +612,41 @@ footer .copyright img {
       font-size: 16px;
     }
   }
+
+/* Enhanced styles including valid class-based tags */
+.edit-text {
+  color: #6a0dad;
+  font-weight: bold;
+}
+
+.pe-text {
+  color: #32cd32;
+  font-weight: bold;
+}
+
+.section-title {
+  font-family: 'bauhaus 93';
+  color: #6a0dad;
+  letter-spacing: 2px;
+}
+
+.btn-text {
+  font-family: 'Space Mono', monospace;
+  font-size: small;
+  letter-spacing: 1px;
+  padding: 10px;
+  color: #6a0dad;
+}
+
+/* Modal responsiveness */
+@media (max-width: 480px) {
+  .modal {
+    padding: 20px 15px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+/* (Rest of your existing CSS remains unchanged and should be merged in here) */
+
   
