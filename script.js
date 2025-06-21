@@ -123,35 +123,35 @@ packagesOverlay.addEventListener("click", () => {
   packagesModal.style.display = "none";
   packagesOverlay.style.display = "none";
 });
-document.querySelector("#bookingModal form").addEventListener("submit", function (e) {
-  e.preventDefault(); // Prevent default form submission
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-  // Get form values
-  const name = document.getElementById("name").value;
-  const phone = document.getElementById("phone").value;
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
   const date = document.getElementById("date").value;
   const service = document.getElementById("service").value;
 
-  // Format WhatsApp message
-  const message = `📸 *New Booking Request on EditPe* 📸
+  if (!name || !phone || !date || !service) {
+    alert("Please fill all fields.");
+    return;
+  }
 
-*Name:* ${name}
-*Phone:* ${phone}
-*Preferred Date:* ${date}
-*Service:* ${service}
+  const message = `*New Booking Request 📸*\n\nName: ${name}\nPhone: ${phone}\nPreferred Date: ${date}\nService: ${service}\n\nFrom EditPe Website`;
 
-Please follow up with the customer.`;
+  // Two recipient numbers (add country code)
+  const numbers = ["8466921944", "8790505612"]; // Replace with your actual numbers
 
-  // Your WhatsApp number (replace with your business number)
-  const yourPhoneNumber = "918790505612"; // with country code, no + sign
+  numbers.forEach(number => {
+    const encodedMsg = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${number}?text=${encodedMsg}`;
+    window.open(whatsappURL, "_blank");
+  });
 
-  // Open WhatsApp
-  const whatsappURL = `https://wa.me/${8466921944}?text=${encodeURIComponent(message)}`;
-  window.open(whatsappURL, "_blank");
-  // Close modal
+  // Close modal after sending
   document.getElementById("bookingModal").style.display = "none";
   document.getElementById("modalOverlay").style.display = "none";
 
-  // Optional: Reset form
+  // Optionally reset the form
   this.reset();
 });
+
