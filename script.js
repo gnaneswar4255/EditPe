@@ -123,6 +123,7 @@ packagesOverlay.addEventListener("click", () => {
   packagesModal.style.display = "none";
   packagesOverlay.style.display = "none";
 });
+
 document.getElementById("bookingForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
@@ -139,7 +140,7 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
   const message = `*New Booking Request 📸*\n\nName: ${name}\nPhone: ${phone}\nPreferred Date: ${date}\nService: ${service}\n\nFrom EditPe Website`;
 
   // Two recipient numbers (add country code)
-  const numbers = ["8466921944", "8790505612"]; // Replace with your actual numbers
+  const numbers = ["918790505612", "918466921944"]; // Replace with your actual numbers
 
   numbers.forEach(number => {
     const encodedMsg = encodeURIComponent(message);
