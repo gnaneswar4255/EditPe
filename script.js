@@ -170,3 +170,23 @@ bookingForm.addEventListener("submit", function(e) {
   }
 });
 
+// Stop video on scroll away
+const videoSection = document.querySelector(".our-work");
+const videoIframe = document.querySelector(".video-item iframe");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting && videoIframe) {
+        const src = videoIframe.src;
+        videoIframe.src = src; // reload to stop
+      }
+    });
+  },
+  { threshold: 0.1 }
+);
+
+if (videoSection && videoIframe) {
+  observer.observe(videoSection);
+}
+
