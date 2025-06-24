@@ -85,6 +85,14 @@ authModalOverlay.addEventListener("click", () => {
   authModalOverlay.style.display = "none";
 });
 
+// Escape key closes modals
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    [bookingModal, signupModal, loginModal, packagesModal].forEach(m => m.style.display = "none");
+    [modalOverlay, authModalOverlay, packagesOverlay].forEach(o => o.style.display = "none");
+  }
+});
+
 // Session logic
 function updateUIForLogin(name) {
   logoutBtn.style.display = "block";
@@ -96,6 +104,11 @@ function updateUIForLogin(name) {
 document.getElementById("signupForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const name = document.getElementById("signupName").value;
+  const password = document.getElementById("signupPassword").value;
+  if (password.length < 6) {
+    alert("Password must be at least 6 characters.");
+    return;
+  }
   updateUIForLogin(name);
   signupModal.style.display = "none";
   authModalOverlay.style.display = "none";
@@ -155,6 +168,8 @@ bookingForm.addEventListener("submit", function(e) {
   const message = `New Booking Received:\n\nName: ${name}\nPhone: ${phone}\nDate: ${date}\nService: ${service}`;
   const encodedMsg = encodeURIComponent(message);
 
+  console.log({ name, phone, date, service });
+
   const whatsapp1 = `https://wa.me/918790505612?text=${encodedMsg}`;
   const whatsapp2 = `https://wa.me/918466921944?text=${encodedMsg}`;
 
@@ -174,12 +189,16 @@ bookingForm.addEventListener("submit", function(e) {
 const videoSection = document.querySelector(".our-work");
 const videoIframe = document.querySelector(".video-item iframe");
 
+if (videoIframe) {
+  videoIframe.setAttribute('loading', 'lazy');
+}
+
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting && videoIframe) {
         const src = videoIframe.src;
-        videoIframe.src = src; // reload to stop
+        videoIframe.src = src;
       }
     });
   },
@@ -189,4 +208,3 @@ const observer = new IntersectionObserver(
 if (videoSection && videoIframe) {
   observer.observe(videoSection);
 }
-
