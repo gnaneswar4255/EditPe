@@ -208,3 +208,27 @@ const observer = new IntersectionObserver(
 if (videoSection && videoIframe) {
   observer.observe(videoSection);
 }
+
+// Toggle service description (slide down/up effect)
+document.querySelectorAll(".service-item").forEach(item => {
+  const desc = item.querySelector("p");
+  desc.style.maxHeight = "0px";
+  desc.style.overflow = "hidden";
+  desc.style.transition = "max-height 0.5s ease";
+
+  item.style.cursor = "pointer";
+  item.addEventListener("click", () => {
+    const isOpen = desc.style.maxHeight && desc.style.maxHeight !== "0px";
+    
+    // Close all other open items
+    document.querySelectorAll(".service-item p").forEach(p => {
+      p.style.maxHeight = "0px";
+    });
+
+    if (!isOpen) {
+      desc.style.maxHeight = desc.scrollHeight + "px";
+    } else {
+      desc.style.maxHeight = "0px";
+    }
+  });
+});
