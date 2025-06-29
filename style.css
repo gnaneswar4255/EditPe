@@ -282,6 +282,8 @@ button:hover {
 }
 
 /* Services */
+
+/* Service Section */
 .services {
   padding: 60px 20px;
   background-color: #f9f9f9;
@@ -302,13 +304,18 @@ button:hover {
   border-radius: 50px;
   padding: 29px 30px;
   box-shadow: 0 4px 6px #6a0dad;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .service-item:hover {
   transform: translateY(-5px);
   box-shadow: 0px -4px 6px #32cd32;
+}
 
+.service-item:active {
+  transform: scale(0.98);
+  box-shadow: inset 0 0 8px #32cd32;
 }
 
 .service-item img {
@@ -328,17 +335,49 @@ button:hover {
   line-height: 1.5;
   font-family: 'Muli', sans-serif;
   color: #333;
+  margin-top: 0;
+  padding-top: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  opacity: 0;
 }
 
-.service-item:active {
-  transform: scale(0.98);
-  box-shadow: inset 0 0 8px #32cd32;
-}
-
-.service-item p {
+.service-item.open p {
+  max-height: 500px;
+  padding-top: 10px;
   margin-top: 10px;
-  padding-top: 5px;
+  opacity: 1;
 }
+
+.scroll-down-arrow {
+  text-align: center;
+  margin-top: 15px;
+  animation: bounceArrow 1.5s infinite;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-down-arrow img {
+  width: 28px;
+  height: 28px;
+}
+
+.scroll-down-arrow.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+@keyframes bounceArrow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 
 /* Our Work */
 .our-work {
@@ -398,7 +437,6 @@ button:hover {
   font-weight: bold;
   font-family: 'Muli', sans-serif;
   font-size: medium;
-  font-weight: bold;
 }
 
 .summary {
@@ -498,3 +536,5 @@ footer .copyright img {
     overflow-y: auto;
   }
 }
+
+
