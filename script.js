@@ -168,8 +168,6 @@ bookingForm.addEventListener("submit", function(e) {
   const message = `New Booking Received:\n\nName: ${name}\nPhone: ${phone}\nDate: ${date}\nService: ${service}`;
   const encodedMsg = encodeURIComponent(message);
 
-  console.log({ name, phone, date, service });
-
   const whatsapp1 = `https://wa.me/918790505612?text=${encodedMsg}`;
   const whatsapp2 = `https://wa.me/918466921944?text=${encodedMsg}`;
 
@@ -209,26 +207,33 @@ if (videoSection && videoIframe) {
   observer.observe(videoSection);
 }
 
-// Toggle service description (slide down/up effect)
+// Toggle service description + arrow behavior
 document.querySelectorAll(".service-item").forEach(item => {
   const desc = item.querySelector("p");
-  desc.style.maxHeight = "0px";
-  desc.style.overflow = "hidden";
-  desc.style.transition = "max-height 0.5s ease";
+  const arrow = item.querySelector(".scroll-down-arrow");
 
-  item.style.cursor = "pointer";
   item.addEventListener("click", () => {
-    const isOpen = desc.style.maxHeight && desc.style.maxHeight !== "0px";
-    
-    // Close all other open items
-    document.querySelectorAll(".service-item p").forEach(p => {
-      p.style.maxHeight = "0px";
+    const isOpen = item.classList.contains("open");
+
+    // Close all service items
+    document.querySelectorAll(".service-item").forEach(otherItem => {
+      otherItem.classList.remove("open");
+      const otherArrow = otherItem.querySelector(".scroll-down-arrow");
+      if (otherArrow) otherArrow.classList.remove("hidden");
     });
 
+    // If it wasn't open, open this one and hide the arrow
     if (!isOpen) {
-      desc.style.maxHeight = desc.scrollHeight + "px";
-    } else {
-      desc.style.maxHeight = "0px";
+      item.classList.add("open");
+      if (arrow) arrow.classList.add("hidden");
     }
   });
+
+  if (arrow) {
+    arrow.addEventListener("click", (e) => {
+      e.stopPropagation();
+      item.classList.add("open");
+      arrow.classList.add("hidden");
+    });
+  }
 });
