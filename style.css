@@ -11,6 +11,32 @@ body {
   color: #333;
 }
 
+/* SEO & Accessibility Enhancement */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #6a0dad;
+  color: #fff;
+  padding: 8px;
+  z-index: 1000;
+  transition: top 0.3s;
+  text-decoration: none;
+  font-family: 'Space Mono', monospace;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #333;
+}
+
 /* Navbar */
 .navbar {
   display: flex;
@@ -536,5 +562,6 @@ footer .copyright img {
     overflow-y: auto;
   }
 }
+
 
 
