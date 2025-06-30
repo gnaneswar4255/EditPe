@@ -1,239 +1,147 @@
 // Sidebar toggle
-const menuToggle = document.getElementById("menuToggle");
-const sidebar = document.getElementById("sidebar");
-const closeSidebar = document.getElementById("closeSidebar");
+document.getElementById("menuToggle").onclick = () => {
+  document.getElementById("sidebar").style.left = "0px";
+};
+document.getElementById("closeSidebar").onclick = () => {
+  document.getElementById("sidebar").style.left = "-250px";
+};
+document.querySelectorAll(".sidebar ul li a").forEach(link =>
+  link.onclick = () => document.getElementById("sidebar").style.left = "-250px"
+);
 
-menuToggle.addEventListener("click", () => {
-  sidebar.style.left = "0px";
-});
+// Modal toggle for Booking
+const toggleModal = (open, modal, overlay) => {
+  modal.style.display = open ? "block" : "none";
+  overlay.style.display = open ? "block" : "none";
+};
 
-closeSidebar.addEventListener("click", () => {
-  sidebar.style.left = "-250px";
-});
-
-document.querySelectorAll(".sidebar ul li a").forEach(link => {
-  link.addEventListener("click", () => {
-    sidebar.style.left = "-250px";
-  });
-});
-
-// Booking modal
-const openModal = document.getElementById("openModal");
-const bookingModal = document.getElementById("bookingModal");
-const closeModal = document.getElementById("closeModal");
-const modalOverlay = document.getElementById("modalOverlay");
-
-openModal.addEventListener("click", () => {
-  bookingModal.style.display = "block";
-  modalOverlay.style.display = "block";
-});
-
-closeModal.addEventListener("click", () => {
-  bookingModal.style.display = "none";
-  modalOverlay.style.display = "none";
-});
-
-modalOverlay.addEventListener("click", () => {
-  bookingModal.style.display = "none";
-  modalOverlay.style.display = "none";
-});
+document.getElementById("openModal").onclick = () => toggleModal(true, bookingModal, modalOverlay);
+document.getElementById("closeModal").onclick = () => toggleModal(false, bookingModal, modalOverlay);
+document.getElementById("modalOverlay").onclick = () => toggleModal(false, bookingModal, modalOverlay);
 
 // Auth modals
-const authTrigger = document.getElementById("authTrigger");
-const authOptions = document.getElementById("authOptions");
-const authModalOverlay = document.getElementById("authModalOverlay");
+document.getElementById("authTrigger").onclick = () => {
+  const el = document.getElementById("authOptions");
+  el.style.display = el.style.display === "block" ? "none" : "block";
+};
 
-const signupModal = document.getElementById("signupModal");
-const loginModal = document.getElementById("loginModal");
+document.getElementById("signupBtn").onclick = () => {
+  toggleModal(true, signupModal, authModalOverlay);
+  document.getElementById("authOptions").style.display = "none";
+};
+document.getElementById("loginBtn").onclick = () => {
+  toggleModal(true, loginModal, authModalOverlay);
+  document.getElementById("authOptions").style.display = "none";
+};
 
-const loginBtn = document.getElementById("loginBtn");
-const signupBtn = document.getElementById("signupBtn");
-const logoutBtn = document.getElementById("logoutBtn");
+document.getElementById("closeSignup").onclick =
+  () => toggleModal(false, signupModal, authModalOverlay);
+document.getElementById("closeLogin").onclick =
+  () => toggleModal(false, loginModal, authModalOverlay);
+document.getElementById("authModalOverlay").onclick = () => {
+  toggleModal(false, signupModal, authModalOverlay);
+  toggleModal(false, loginModal, authModalOverlay);
+};
 
-const closeSignup = document.getElementById("closeSignup");
-const closeLogin = document.getElementById("closeLogin");
-
-authTrigger.addEventListener("click", () => {
-  authOptions.style.display = authOptions.style.display === "block" ? "none" : "block";
-});
-
-signupBtn.addEventListener("click", () => {
-  signupModal.style.display = "block";
-  authModalOverlay.style.display = "block";
-  authOptions.style.display = "none";
-});
-
-loginBtn.addEventListener("click", () => {
-  loginModal.style.display = "block";
-  authModalOverlay.style.display = "block";
-  authOptions.style.display = "none";
-});
-
-closeSignup.addEventListener("click", () => {
-  signupModal.style.display = "none";
-  authModalOverlay.style.display = "none";
-});
-
-closeLogin.addEventListener("click", () => {
-  loginModal.style.display = "none";
-  authModalOverlay.style.display = "none";
-});
-
-authModalOverlay.addEventListener("click", () => {
-  signupModal.style.display = "none";
-  loginModal.style.display = "none";
-  authModalOverlay.style.display = "none";
-});
-
-// Escape key closes modals
-document.addEventListener("keydown", (e) => {
+document.addEventListener("keydown", e => {
   if (e.key === "Escape") {
     [bookingModal, signupModal, loginModal, packagesModal].forEach(m => m.style.display = "none");
     [modalOverlay, authModalOverlay, packagesOverlay].forEach(o => o.style.display = "none");
   }
 });
 
-// Session logic
-function updateUIForLogin(name) {
+// Login/Signup UI
+const updateUIForLogin = name => {
   logoutBtn.style.display = "block";
   authOptions.style.display = "none";
   authTrigger.innerHTML = `<span style="font-family:'Space Mono';color:#6a0dad;">👤 ${name}</span>`;
   localStorage.setItem("editpeUser", name);
-}
+};
 
-document.getElementById("signupForm").addEventListener("submit", (e) => {
+document.getElementById("signupForm").onsubmit = e => {
   e.preventDefault();
-  const name = document.getElementById("signupName").value;
-  const password = document.getElementById("signupPassword").value;
-  if (password.length < 6) {
+  const name = signupName.value.trim();
+  if (signupPassword.value.length < 6) {
     alert("Password must be at least 6 characters.");
     return;
   }
   updateUIForLogin(name);
-  signupModal.style.display = "none";
-  authModalOverlay.style.display = "none";
-});
+  toggleModal(false, signupModal, authModalOverlay);
+};
 
-document.getElementById("loginForm").addEventListener("submit", (e) => {
+document.getElementById("loginForm").onsubmit = e => {
   e.preventDefault();
-  const phone = document.getElementById("loginPhone").value;
-  updateUIForLogin(`+91 ${phone}`);
-  loginModal.style.display = "none";
-  authModalOverlay.style.display = "none";
-});
+  updateUIForLogin(`+91 ${loginPhone.value.trim()}`);
+  toggleModal(false, loginModal, authModalOverlay);
+};
 
-logoutBtn.addEventListener("click", () => {
+logoutBtn.onclick = () => {
   localStorage.removeItem("editpeUser");
   alert("Logged out!");
   location.reload();
-});
+};
 
-window.addEventListener("load", () => {
+window.onload = () => {
   const savedUser = localStorage.getItem("editpeUser");
   if (savedUser) updateUIForLogin(savedUser);
-});
+};
 
-// Packages modal
-const packagesLink = document.getElementById("packagesPopup");
-const packagesModal = document.getElementById("packagesModal");
-const packagesOverlay = document.getElementById("packagesOverlay");
-const closePackages = document.getElementById("closePackages");
-
-packagesLink.addEventListener("click", (e) => {
+// Packages popup
+packagesPopup.onclick = e => {
   e.preventDefault();
-  packagesModal.style.display = "block";
-  packagesOverlay.style.display = "block";
-});
+  toggleModal(true, packagesModal, packagesOverlay);
+};
+closePackages.onclick = () => toggleModal(false, packagesModal, packagesOverlay);
+packagesOverlay.onclick = () => toggleModal(false, packagesModal, packagesOverlay);
 
-closePackages.addEventListener("click", () => {
-  packagesModal.style.display = "none";
-  packagesOverlay.style.display = "none";
-});
-
-packagesOverlay.addEventListener("click", () => {
-  packagesModal.style.display = "none";
-  packagesOverlay.style.display = "none";
-});
-
-// Booking form WhatsApp send
-const bookingForm = document.getElementById("bookingForm");
-bookingForm.addEventListener("submit", function(e) {
+// Booking form to WhatsApp
+bookingForm.onsubmit = function (e) {
   e.preventDefault();
+  const msg = `New Booking:\nName: ${name.value}\nPhone: ${phone.value}\nDate: ${date.value}\nService: ${service.value}`;
+  const encodedMsg = encodeURIComponent(msg);
 
-  const name = document.getElementById("name").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const date = document.getElementById("date").value.trim();
-  const service = document.getElementById("service").value.trim();
+  const links = [
+    `https://wa.me/918790505612?text=${encodedMsg}`,
+    `https://wa.me/918466921944?text=${encodedMsg}`
+  ];
 
-  const message = `New Booking Received:\n\nName: ${name}\nPhone: ${phone}\nDate: ${date}\nService: ${service}`;
-  const encodedMsg = encodeURIComponent(message);
-
-  const whatsapp1 = `https://wa.me/918790505612?text=${encodedMsg}`;
-  const whatsapp2 = `https://wa.me/918466921944?text=${encodedMsg}`;
-
-  if (confirm("Submit booking and open WhatsApp to notify team?")) {
-    window.open(whatsapp1, '_blank');
-    setTimeout(() => {
-      window.open(whatsapp2, '_blank');
-    }, 500);
-
-    bookingModal.style.display = "none";
-    modalOverlay.style.display = "none";
+  if (confirm("Submit booking and notify on WhatsApp?")) {
+    window.open(links[0], '_blank');
+    setTimeout(() => window.open(links[1], '_blank'), 500);
+    toggleModal(false, bookingModal, modalOverlay);
     this.reset();
   }
-});
+};
 
-// Stop video on scroll away
-const videoSection = document.querySelector(".our-work");
+// Lazy-load and reset YouTube video
 const videoIframe = document.querySelector(".video-item iframe");
-
 if (videoIframe) {
-  videoIframe.setAttribute('loading', 'lazy');
+  videoIframe.loading = 'lazy';
+  const observer = new IntersectionObserver(entries => {
+    if (!entries[0].isIntersecting) videoIframe.src = videoIframe.src;
+  }, { threshold: 0.1 });
+  observer.observe(videoIframe);
 }
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting && videoIframe) {
-        const src = videoIframe.src;
-        videoIframe.src = src;
-      }
-    });
-  },
-  { threshold: 0.1 }
-);
-
-if (videoSection && videoIframe) {
-  observer.observe(videoSection);
-}
-
-// Toggle service description + arrow behavior
+// Expand service cards
 document.querySelectorAll(".service-item").forEach(item => {
   const desc = item.querySelector("p");
   const arrow = item.querySelector(".scroll-down-arrow");
 
-  item.addEventListener("click", () => {
-    const isOpen = item.classList.contains("open");
-
-    // Close all service items
-    document.querySelectorAll(".service-item").forEach(otherItem => {
-      otherItem.classList.remove("open");
-      const otherArrow = otherItem.querySelector(".scroll-down-arrow");
-      if (otherArrow) otherArrow.classList.remove("hidden");
+  item.onclick = () => {
+    document.querySelectorAll(".service-item").forEach(i => {
+      i.classList.remove("open");
+      const a = i.querySelector(".scroll-down-arrow");
+      if (a) a.classList.remove("hidden");
     });
+    item.classList.add("open");
+    if (arrow) arrow.classList.add("hidden");
+  };
 
-    // If it wasn't open, open this one and hide the arrow
-    if (!isOpen) {
-      item.classList.add("open");
-      if (arrow) arrow.classList.add("hidden");
-    }
-  });
-
-  if (arrow) {
-    arrow.addEventListener("click", (e) => {
-      e.stopPropagation();
-      item.classList.add("open");
-      arrow.classList.add("hidden");
-    });
-  }
+  if (arrow) arrow.onclick = e => {
+    e.stopPropagation();
+    item.classList.add("open");
+    arrow.classList.add("hidden");
+  };
 });
+
