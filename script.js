@@ -113,15 +113,27 @@ bookingForm.onsubmit = function (e) {
   }
 };
 
-// Lazy-load and reset YouTube video
-const videoIframe = document.querySelector(".video-item iframe");
-if (videoIframe) {
-  videoIframe.loading = 'lazy';
-  const observer = new IntersectionObserver(entries => {
-    if (!entries[0].isIntersecting) videoIframe.src = videoIframe.src;
-  }, { threshold: 0.1 });
-  observer.observe(videoIframe);
+// Lazy-load and reset Reel video
+const video = document.querySelector(".video-item video");
+
+if (video) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const entry = entries[0];
+      if (entry.isIntersecting) {
+        video.play();
+      } else {
+        video.pause();
+        video.currentTime = 0;
+      }
+    },
+    { threshold: 0.2 }
+  );
+
+  observer.observe(video);
 }
+
+
 
 // Expand service cards
 document.querySelectorAll(".service-item").forEach(item => {
