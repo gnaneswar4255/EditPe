@@ -425,17 +425,20 @@ button:hover {
   padding: 20px;
   border-radius: 30px;
   box-shadow: 0 4px 12px #6a0dad;
-  max-width: 480px;
+  max-width: 360px;
   width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
 }
 
-.video-item iframe {
+.video-item video {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  border: none;
-  border-radius: 10px;
+  aspect-ratio: 9 / 16;
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
 }
-
 /* Contact Us */
 .contact-us {
   padding: 60px 20px;
