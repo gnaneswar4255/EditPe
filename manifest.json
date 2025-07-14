@@ -1,0 +1,16 @@
+{
+  "name": "EditPe",
+  "short_name": "EditPe",
+  "start_url": "/EditPe/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6a0dad",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

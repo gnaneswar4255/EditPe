@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EditPe offers video editing, content creation, poster design, and shoots for creators, startups, and brands.">
+  <meta name="keywords" content="EditPe, video editing, reel creation, content creation, poster design, branding, shoots">
+  <meta name="author" content="EditPe">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#6a0dad">
+
+  <title>EditPe</title>
+  <link rel="canonical" href="https://editpe.com" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="EditPe - Content Creation & Digital Marketing Services" />
+  <meta property="og:description" content="Video editing, reels, poster designing, and shoots for creators and brands." />
+  <meta property="og:image" content="https://editpe.com/img/WEB%20NAME.png" />
+  <meta property="og:url" content="https://editpe.com" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EditPe - Content Creation & Digital Marketing Services">
+  <meta name="twitter:description" content="Get your content edited, designed, and promoted with EditPe.">
+  <meta name="twitter:image" content="https://editpe.com/img/WEB%20NAME.png">
+
+  <!-- Fonts and Styles -->
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono|Muli&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/bauhaus-93" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <!-- Google Fonts: Space Mono & Muli -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Muli&display=swap" rel="stylesheet">
+
+<!-- Manifest for PWA -->
+<link rel="manifest" href="manifest.json">
+
+<link rel="apple-touch-icon" href="favicon.ico">
+
+<!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "EditPe",
+    "url": "https://editpe.com",
+    "logo": "https://editpe.com/img/WEB%20NAME.png",
+    "sameAs": [
+      "https://www.instagram.com/editpe_official",
+      "mailto:editpeagency@gmail.com",
+      "https://wa.me/918790505612"
+    ],
+    "description": "EditPe provides premium content creation services including video editing, posters, and shoot setups for creators, startups, and businesses."
+  }
+  </script>
+</head>
+
+<body>
+  <a href="#home-section" class="skip-link">Skip to content</a>
+  <header>
+    <nav class="navbar">
+      <div class="menu dropdown" id="menuToggle">
+        <img src="https://img.icons8.com/ios-filled/50/menu--v6.png" alt="menu-icon" />
+      </div>
+      <div class="sidebar" id="sidebar">
+        <div class="back-arrow" id="closeSidebar">
+          <img src="https://img.icons8.com/ios-filled/24/ffffff/left.png" alt="Back Arrow" />
+          <span>Back</span>
+        </div>
+        <ul>
+          <li><a href="#home-section">Home</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1ufF5vgRbXNL_5lcs696ZMu6TK_4MkmCa?usp=drive_link" target="_blank">Portfolio</a></li>
+          <li><a href="#" id="packagesPopup">Packages</a></li>
+          <li><a href="#contact-section">Contact us</a></li>
+        </ul>
+      </div>
+      <div id="packagesModal" class="modal">
+        <div class="modal-content" style="text-align: center;">
+          <span class="close-modal" id="closePackages">&times;</span>
+          <h3 class="package-info">WILL BE UPDATED SOON..!</h3>
+          <p id="infocap">FOR MORE INFORMATION CONTACT US.</p>
+        </div>
+      </div>
+      <div class="modal-overlay" id="packagesOverlay"></div>
+      <div id="authTrigger" class="profile" style="cursor: pointer;">
+        <img src="https://img.icons8.com/fluency-systems-regular/48/user-male-circle--v1.png" alt="user-profile-icon" />
+      </div>
+      <div id="authOptions" class="auth-options">
+        <button id="loginBtn">Login</button>
+        <button id="signupBtn">Sign Up</button>
+        <button id="logoutBtn" style="display: none;">Logout</button>
+      </div>
+      <div class="modal-overlay" id="authModalOverlay"></div>
+      <div class="modal" id="signupModal">
+        <div class="modal-content">
+          <span class="close-modal" id="closeSignup">&times;</span>
+          <h2>Sign Up</h2>
+          <form id="signupForm">
+            <label for="signupName">Name</label>
+            <input type="text" id="signupName" required>
+            <label for="signupPhone">Phone Number</label>
+            <input type="tel" id="signupPhone" required>
+            <label for="signupPassword">Password</label>
+            <input type="password" id="signupPassword" required>
+            <button type="submit">Create Account</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal" id="loginModal">
+        <div class="modal-content">
+          <span class="close-modal" id="closeLogin">&times;</span>
+          <h2>Login</h2>
+          <form id="loginForm">
+            <label for="loginPhone">Phone Number</label>
+            <input type="tel" id="loginPhone" required>
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" required>
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="home-section">
+      <div class="Name">
+        <figure>
+          <img width="250" height="140" src="web-name.png" alt="EditPe Logo" />
+          <figcaption>"Where you're a creator, brand or startup - <span class="edit-text">Edit</span><span class="pe-text">Pe</span> gives your content the polish it deserves."</figcaption>
+          <div class="bookbutton">
+            <button id="openModal"><b><span class="btn-text">BOOK A SHOOT</span></b></button>
+          </div>
+          <div class="modal-overlay" id="modalOverlay"></div>
+          <div class="modal" id="bookingModal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <img src="web-name.png" alt="EditPe Logo" class="modal-logo" />
+                <span class="close-modal" id="closeModal">&times;</span>
+              </div>
+              <h2>BOOK A SHOOT</h2>
+              <form id="bookingForm">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Full Name" required>
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000" required>
+                <label for="date">Preferred Date</label>
+                <input type="date" id="date" name="date" required>
+                <label for="service">Select Service</label>
+                <select id="service" name="service" required>
+                  <option value="">-- Select a Service --</option>
+                  <option value="Reel Content Creation">Reel Content Creation</option>
+                  <option value="Video Editing">Video Editing</option>
+                  <option value="Poster Designing">Poster Designing</option>
+                  <option value="Video Shooting">Video Shooting</option>
+                </select>
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </section>
+    <section class="services">
+  <h2 class="section-title">Our Services</h2>
+  <div class="service-grid">
+    <div class="service-item">
+      <img src="https://img.icons8.com/ios-filled/50/video.png" alt="Content Creation Icon">
+      <h3>Content Creation</h3>
+      <p>→ Social media posts (image & video)<br>
+         → Reels (trending + business-focused)<br>
+         → Blog writing<br>
+         → Scriptwriting for reels or ads</p>
+         <div class="scroll-down-arrow">
+  <img src="https://img.icons8.com/ios/50/6a0dad/circled-down-2.png" alt="Scroll Arrow" />
+    </div>
+    </div>
+    <div class="service-item">
+      <img src="https://img.icons8.com/ios-filled/50/design.png" alt="Graphic Design Icon">
+      <h3>Graphic Design</h3>
+      <p>→ Logos & branding<br>
+         → Instagram post carousels<br>
+         → Posters & flyers<br>
+         → YouTube thumbnails</p>
+         <div class="scroll-down-arrow">
+  <img src="https://img.icons8.com/ios/50/6a0dad/circled-down-2.png" alt="Scroll Arrow" />
+    </div>
+    </div>
+    <div class="service-item">
+      <img src="https://img.icons8.com/ios-filled/50/clapperboard.png" alt="Video Editing Icon">
+      <h3>Video Editing</h3>
+      <p>→ Reels & shorts<br>
+         → YouTube video edits<br>
+         → Corporate edits<br>
+         → Voiceovers & subtitles</p>
+         <div class="scroll-down-arrow">
+  <img src="https://img.icons8.com/ios/50/6a0dad/circled-down-2.png" alt="Scroll Arrow" />
+    </div>
+    </div>
+    <div class="service-item">
+      <img src="https://img.icons8.com/ios-filled/50/groups.png" alt="Social Media Management Icon">
+      <h3>Social Media Management</h3>
+      <p>→ Content planning (daily/weekly)<br>
+         → Hashtag research<br>
+         → Scheduling posts<br>
+         → Audience engagement</p>
+         <div class="scroll-down-arrow">
+  <img src="https://img.icons8.com/ios/50/6a0dad/circled-down-2.png" alt="Scroll Arrow" />
+    </div>
+    </div>
+    <div class="service-item">
+      <img src="https://img.icons8.com/external-smashingstocks-mixed-smashing-stocks/68/external-ad-campaign-marketing-and-business-management-smashingstocks-mixed-smashing-stocks-2.png" alt="Ad Campaign Icon">
+      <h3>Ad Campaigns</h3>
+      <p>→ Facebook & Instagram ad setup<br>
+         → Target audience research<br>
+         → A/B testing creatives<br>
+         → Performance reports</p>
+         <div class="scroll-down-arrow">
+  <img src="https://img.icons8.com/ios/50/6a0dad/circled-down-2.png" alt="Scroll Arrow" />
+    </div>
+    </div>
+  </div>
+</section>
+    <section class="our-work" id="portfolio-section">
+      <h2 class="section-title">Our Work</h2>
+      <div class="video-gallery">
+        <div class="video-item">
+  <video 
+    src="/vital-reel.mp4" type="video/mp4"
+    playsinline 
+    muted 
+    autoplay 
+    loop 
+    controls 
+    preload="none"
+  ></video>
+</div>
+      </div>
+      <div class="drive-button">
+        <a href="https://drive.google.com/drive/folders/1ufF5vgRbXNL_5lcs696ZMu6TK_4MkmCa?usp=drive_link" target="_blank">
+          <button><b><span class="btn-text">VIEW MORE</span></b></button>
+        </a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <section class="contact-us">
+      <h2 class="section-title">Contact Us</h2>
+      <div class="lets-talk">
+        <img src="https://img.icons8.com/ios-filled/50/6a0dad/speech-bubble-with-dots.png" alt="Let's Talk Icon" class="lets-talk-icon" />
+        <p class="lets-talk-text">Let's Talk Content</p>
+      </div>
+      <div class="summary">
+        <p>Have a project in mind? Need help with reels, posters, or a full shoot? Drop us a message—we're quick to respond and ready to create!</p>
+      </div>
+      <div class="contact-details" id="contact-section">
+        <div class="contact-card">
+          <img src="https://img.icons8.com/ios-filled/50/6a0dad/whatsapp.png" alt="WhatsApp Icon" />
+          <p><strong>Phone:</strong>+91 87905 05612<br>+91 84669 21944<br>+91 93817 11120</p>
+        </div>
+        <div class="contact-card">
+          <img src="https://img.icons8.com/ios-filled/50/6a0dad/instagram-new.png" alt="Instagram Icon" />
+          <p><strong>Instagram:</strong> <a href="https://www.instagram.com/editpe_official" target="_blank">@editpe_official</a></p>
+        </div>
+        <div class="contact-card">
+          <img src="https://img.icons8.com/ios-filled/50/6a0dad/gmail.png" alt="Gmail Icon" />
+          <p><strong>Mail:</strong> editpeagency@gmail.com</p>
+        </div>
+      </div>
+      </div>
+    </section>
+    <div class="copyright">
+      <img src="https://img.icons8.com/ios-glyphs/20/999999/copyright.png" alt="Copyright Icon" />
+      <p>All rights reserved by <strong>EditPe</strong> 2025</p>
+    </div>
+  </footer>
+  <script src="script.js" defer></script>
+</body>
+</html>
